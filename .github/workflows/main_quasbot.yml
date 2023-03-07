@@ -6,40 +6,40 @@ name: Deploy Quasbot
 
 on:
   push:
-    branches: [main]
+    branches: [ main ]
   workflow_dispatch:
 
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
+ 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
+
       - name: Set up Python and Node.js
         uses: actions/setup-python@v2
         with:
           python-version: '3.x'
           node-version: '16.x'
+      - name: Install Node.js dependencies
         run: |
-          curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
-          sudo apt-get install -y nodejs
+          npm install -g serverless@latest
 
       # Change working directory to quasmati-portal
       - name: Change working directory
         run: cd quasmati-portal
-
+      
       # Install Python dependencies
       - name: Install dependencies
         run: |
           python3 -m pip install --upgrade pip
-          cd quasmati-portal
-          pip install -r requirements.txt
-
+          pip install -r quasmati-portal/requirements.txt
+      
       # Deploy the code using the serverless framework
       - name: Deploy code
         run: |
-          npm install -g serverless@latest
           sls deploy -v
+
 
