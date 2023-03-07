@@ -6,7 +6,7 @@ name: Deploy Quasbot
 
 on:
   push:
-    branches: [main]
+    branches: [ main ]
   workflow_dispatch:
 
 env:
@@ -17,20 +17,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Clear npm cache
-        run: npm cache clean --force
-      
+
       - name: Set up Python and Node.js
         uses: actions/setup-python@v2
         with:
           python-version: '3.x'
-      - name: Set up Node.js 16.x
-        uses: actions/setup-node@v2
-        with:
-          node-version: '16.x'
-      - name: Install Serverless Framework
-        run: npm install -g serverless@latest
-      
+        run: |
+          sudo apt-get update
+          curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+          sudo apt-get install -y nodejs
+
       # Change working directory to quasmati-portal
       - name: Change working directory
         run: cd quasmati-portal
@@ -44,7 +40,9 @@ jobs:
       # Deploy the code using the serverless framework
       - name: Deploy code
         run: |
+          npm install -g serverless@latest
           sls deploy -v
+
 
 
 
