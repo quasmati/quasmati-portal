@@ -2,7 +2,7 @@ import os
 import openai
 import gradio as gr
 
-openai.api_key = "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"
+openai.api_key = " {YOUR-API-KEY} "
 
 def chat(message, history=None):
     if history is None:
