@@ -1,0 +1,35 @@
+
+
+Run this in quasChat dir each time to activate the virtual environment
+-----------------------------------
+source venv/bin/activate
+
+Now you can run your Flask app by executing the app.py file from the terminal
+---------------------
+python app.py
+python3 app.py
+
+{{This will start the Flask development server and run your app. You can access the app by visiting localhost:5000 in your web browser.}}
+
+
+http://127.0.0.1:5000
+
+
+=-=-=-=-=
+
+
+/Library/Frameworks/Python.framework/Versions/3.10/bin/python3.10 app.py
+
+/Library/Frameworks/Python.framework/Versions/3.10/bin/python3 app.py
+
+-=-=-
+export PATH="/Library/Frameworks/Python.framework/Versions/3.10/bin:$PATH"
+
+
+export PATH="/Library/Frameworks/Python.framework/Versions/3.10/bin:$PATH"
+
+
+/usr/local/bin/python3
+
+
+
