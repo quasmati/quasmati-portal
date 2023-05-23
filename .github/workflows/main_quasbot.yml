@@ -60,4 +60,4 @@ jobs:
         with:
           app-name: 'quasbot'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_785D4925CD62415C903CBF66292855B7 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_135208A8E76C4FC5942EB84A5A02FCBE }}
