@@ -1,22 +1,25 @@
+
 import os
 import openai
 import gradio as gr
 
-openai.api_key = " {YOUR-API-KEY} "
+openai.api_key = " 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 "
+
+
+
 
 def chat(message, history=None):
     if history is None:
         history = []
     try:
         response = openai.Completion.create(
-    engine="text-davinci-003",
-    prompt=message,
-    max_tokens=4089,
-    n=1,
-    stop=None,
-    temperature=0.7,
-)
-
+            engine="text-davinci-003",
+            prompt=message,
+            max_tokens=4086, # Adjusted max_tokens value
+            n=1,
+            stop=None,
+            temperature=0.7,
+        )
         message = response.choices[0].text.strip()
     except Exception as e:
         message = f"Error: {str(e)}"
@@ -41,4 +44,4 @@ title = "🤖 ChatGPT-Assistant 🐍"
 description = "<center> ChatGPT-Assistant is a chatbot that uses the OpenAI GPT-3 model. <center>"
 
 interface = gr.Interface(fn=chatbot, inputs=inputs, outputs=outputs, title=title, description=description)
-interface.launch()
+interface.launch(share=True)
