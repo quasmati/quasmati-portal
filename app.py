@@ -3,7 +3,7 @@ from dotenv import load_dotenv
 import openai
 import gradio as gr
 
-#ignore this message 
+#ignore message 
 
 
 openai.api_key = os.getenv('API_KEY')
